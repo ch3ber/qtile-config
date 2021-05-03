@@ -73,22 +73,21 @@ keys = [
     Key([mod], "b", lazy.spawn("org.mozilla.firefox"))
 ]
 
-groups = [Group(i) for i in "1234567890"]
+group_names = [("", {'layout': 'columns'}),
+               ("", {'layout': 'columns'}),
+               ("", {'layout': 'stack'}),
+               ("4", {'layout': 'columns'}),
+               ("5", {'layout': 'columns'}),
+               ("6", {'layout': 'columns'}),
+               ("7", {'layout': 'columns'}),
+               ("祥", {'layout': 'columns'}),
+               ("", {'layout': 'matrix'})]
 
-for i in groups:
-    keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
+groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
-    ])
+for i, (name, kwargs) in enumerate(group_names, 1):
+    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f'),
@@ -108,8 +107,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [Screen(top=bar.Bar(
     [
-        widget.GroupBox(padding=10, background="#001A1A", borderwidth=0, active="#ffffff", inactive="#4C4D4F", highlight_method='block', this_current_screen_border="#005959", this_screen_border="#0F3333"),
-        widget.TextBox(text='',  foreground="#001A1A", fontsize=21),
+        widget.GroupBox(padding=10, borderwidth=0, active="#D8E5E5", inactive="#4C4D4F", highlight_method='text', this_current_screen_border="#ffffff", this_screen_border="#0F3333"),
         widget.Prompt(),
         widget.WindowName(foreground="#00ffff"),
         #widget.Chord(
@@ -121,9 +119,9 @@ screens = [Screen(top=bar.Bar(
         widget.TextBox(text='',  foreground="#00A6A6", fontsize=21),
         widget.CurrentLayout(background="#00A6A6", foreground="#1d1d1d"),
         widget.TextBox(text='',  foreground="#005959", background="#00A6A6", fontsize=21),
-        widget.Clock(format='  %a %d  %H:%M', background="#005959", foreground="#ffffff"),
+        widget.Net(background="#005959", foreground="#ffffff"),
         widget.TextBox(text='',  foreground="#0F3333", background="#005959", fontsize=21),
-        widget.CurrentLayout(background="#0F3333", foreground="#ffffff"),
+        widget.Clock(format=' %H:%M  %a %d %m', background="#0F3333", foreground="#ffffff"),
 
             ],22,background='#001212',margin=0,opacity=1,),),]
 
@@ -166,6 +164,6 @@ focus_on_window_activation = "smart"
 wmname = "LG3D"
 
 #set wallpaper
-os.system("feh -z --bg-fill ~/Images/wallpapers/")
+os.system("feh -z --bg-fill ~/Images/wallpapers/minimalist")
 #enable trasparenci
 os.system("compton &")
