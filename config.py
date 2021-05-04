@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -73,15 +74,15 @@ keys = [
     Key([mod], "b", lazy.spawn("org.mozilla.firefox"))
 ]
 
-group_names = [("", {'layout': 'columns'}),
-               ("", {'layout': 'columns'}),
-               ("", {'layout': 'stack'}),
+group_names = [(" TERM", {'layout': 'columns'}),
+               (" WEB", {'layout': 'columns'}),
+               (" GIT", {'layout': 'stack'}),
                ("4", {'layout': 'columns'}),
                ("5", {'layout': 'columns'}),
                ("6", {'layout': 'columns'}),
-               ("7", {'layout': 'columns'}),
                ("祥", {'layout': 'columns'}),
-               ("", {'layout': 'matrix'})]
+               ("", {'layout': 'matrix'}),
+               ("", {'layout': 'zoomy'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -107,23 +108,20 @@ extension_defaults = widget_defaults.copy()
 
 screens = [Screen(top=bar.Bar(
     [
-        widget.GroupBox(padding=10, borderwidth=0, active="#D8E5E5", inactive="#4C4D4F", highlight_method='text', this_current_screen_border="#ffffff", this_screen_border="#0F3333"),
+        widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
+        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#5C4D4F", highlight_method='text', this_current_screen_border="#009999", this_screen_border="#0F3333", background="#00CCCC"),
+        widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
         widget.Prompt(),
         widget.WindowName(foreground="#00ffff"),
-        #widget.Chord(
-        #    chords_colors={
-        #        'launch': ("#1d1d1d", "#e1e1e1"),
-        #    },
-        #    name_transform=lambda name: name.upper(),
-        #),
-        widget.TextBox(text='',  foreground="#00A6A6", fontsize=21),
-        widget.CurrentLayout(background="#00A6A6", foreground="#1d1d1d"),
-        widget.TextBox(text='',  foreground="#005959", background="#00A6A6", fontsize=21),
-        widget.Net(background="#005959", foreground="#ffffff"),
-        widget.TextBox(text='',  foreground="#0F3333", background="#005959", fontsize=21),
-        widget.Clock(format=' %H:%M  %a %d %m', background="#0F3333", foreground="#ffffff"),
+        widget.TextBox(text='',  foreground="#009999", fontsize=21),
+        widget.CurrentLayout(background="#009999", foreground="#ffffff"),
+        widget.TextBox(text='',  foreground="#006666", background="#009999", fontsize=21),
+        widget.TextBox(text=' ',  background="#006666", fontsize=18),
+        widget.Net(background="#006666", foreground="#ffffff", use_bits='False'),
+        widget.TextBox(text='',  foreground="#003333", background="#006666", fontsize=21),
+        widget.Clock(format=' %H:%M  %a %d %m', background="#003333", foreground="#ffffff"),
 
-            ],22,background='#001212',margin=0,opacity=1,),),]
+            ],22,background='#001919',margin=0,opacity=1,),),]
 
 # Drag floating layouts.
 mouse = [
