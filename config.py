@@ -51,9 +51,13 @@ keys = [
     #run command
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     #exec dmenu
-    Key([mod], "m", lazy.spawn("dmenu_run")),
+    Key([mod, "shift"], "m", lazy.spawn("dmenu_run")),
+    #exec rofi
+    Key([mod], "m", lazy.spawn("rofi -show drun")),
     #exec firefox
-    Key([mod], "b", lazy.spawn("org.mozilla.firefox"))
+    Key([mod], "b", lazy.spawn("firefox")),
+    #exec firefox developer edition
+    Key([mod, "shift"], "b", lazy.spawn("firefox-developer-edition"))
 ]
 
 group_names = [(" TERM", {'layout': 'columns'}),
