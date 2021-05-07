@@ -57,7 +57,9 @@ keys = [
     #exec firefox
     Key([mod], "b", lazy.spawn("firefox")),
     #exec firefox developer edition
-    Key([mod, "shift"], "b", lazy.spawn("firefox-developer-edition"))
+    Key([mod, "shift"], "b", lazy.spawn("firefox-developer-edition")),
+    #take a screen capture
+    Key([mod, "shift"], "s", lazy.spawn("scrot"))
 ]
 
 group_names = [(" TERM", {'layout': 'columns'}),
@@ -95,7 +97,7 @@ extension_defaults = widget_defaults.copy()
 screens = [Screen(top=bar.Bar(
     [
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
-        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#5C4D4F", highlight_method='text', this_current_screen_border="#009999", this_screen_border="#0F3333", background="#00CCCC"),
+        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#929292", highlight_method='text', this_current_screen_border="#ffffff", background="#00CCCC"),
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
         widget.Prompt(),
         widget.WindowName(foreground="#00ffff"),
@@ -148,6 +150,6 @@ focus_on_window_activation = "smart"
 wmname = "LG3D"
 
 #set wallpaper of https://www.github.com/chEber405/wallpapers
-os.system("feh -z --bg-fill ~/Images/wallpapers/minimalist")
+os.system("feh -z --bg-fill ~/Images/wallpapersInUse")
 #enable trasparenci
 os.system("compton &")
