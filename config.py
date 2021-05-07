@@ -97,7 +97,7 @@ extension_defaults = widget_defaults.copy()
 screens = [Screen(top=bar.Bar(
     [
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
-        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#929292", highlight_method='text', this_current_screen_border="#ffffff", background="#00CCCC"),
+        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#929292", highlight_method='text', this_current_screen_border="#e5ffff", background="#00CCCC"),
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
         widget.Prompt(),
         widget.WindowName(foreground="#00ffff"),
