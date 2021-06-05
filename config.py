@@ -36,7 +36,7 @@ keys = [
     Key([mod], "n", lazy.layout.normalize()),
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-   #Toggle between layouts
+    #Toggle between layouts
     Key([mod], "Tab", lazy.next_layout()),
 
     #kill focused window
@@ -59,7 +59,7 @@ keys = [
     #exec firefox developer edition
     Key([mod, "shift"], "b", lazy.spawn("firefox-developer-edition")),
     #take a screen capture
-    Key([mod, "shift"], "s", lazy.spawn("scrot"))
+    Key([mod, "shift"], "s", lazy.spawn("scrot")),
 ]
 
 group_names = [(" TERM", {'layout': 'columns'}),
@@ -81,7 +81,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),
-    layout.Stack(num_stacks=2),
+    #layout.Stack(num_stacks=2),
     layout.Zoomy(),
     layout.Matrix(),
 ]
@@ -97,7 +97,7 @@ extension_defaults = widget_defaults.copy()
 screens = [Screen(top=bar.Bar(
     [
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
-        widget.GroupBox(padding=10, borderwidth=0, active="#001919", inactive="#929292", highlight_method='text', this_current_screen_border="#e5ffff", background="#00CCCC"),
+        widget.GroupBox(padding=10, borderwidth=0, active="#005d5d", inactive="#009393", highlight_method='text', this_current_screen_border="#002f2f", background="#00CCCC"),
         widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
         widget.Prompt(),
         widget.WindowName(foreground="#00ffff"),
@@ -153,3 +153,4 @@ wmname = "LG3D"
 os.system("feh -z --bg-fill ~/Images/wallpapersInUse")
 #enable trasparenci
 os.system("compton &")
+
