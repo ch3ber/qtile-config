@@ -64,12 +64,12 @@ keys = [
 
 group_names = [(" TERM", {'layout': 'columns'}),
                (" WEB", {'layout': 'columns'}),
-               (" GIT", {'layout': 'stack'}),
+               ("3", {'layout': 'stack'}),
                ("4", {'layout': 'columns'}),
                ("5", {'layout': 'columns'}),
                ("6", {'layout': 'columns'}),
-               ("祥", {'layout': 'columns'}),
-               ("", {'layout': 'matrix'}),
+               ("7", {'layout': 'columns'}),
+               ("祥", {'layout': 'matrix'}),
                ("", {'layout': 'zoomy'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
