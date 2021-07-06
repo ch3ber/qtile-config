@@ -62,15 +62,15 @@ keys = [
     Key([mod, "shift"], "s", lazy.spawn("scrot")),
 ]
 
-group_names = [(" TERM", {'layout': 'columns'}),
-               (" WEB", {'layout': 'columns'}),
-               ("3", {'layout': 'stack'}),
+group_names = [(" HOME", {'layout': 'columns'}),
+               (" WEB", {'layout': 'max'}),
+               ("3", {'layout': 'columns'}),
                ("4", {'layout': 'columns'}),
                ("5", {'layout': 'columns'}),
                ("6", {'layout': 'columns'}),
                ("7", {'layout': 'columns'}),
                ("祥", {'layout': 'matrix'}),
-               ("", {'layout': 'zoomy'})]
+               ("", {'layout': 'columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -79,7 +79,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
+    layout.Columns(border_focus_stack='#005d5d'),
     layout.Max(),
     #layout.Stack(num_stacks=2),
     layout.Zoomy(),
@@ -107,9 +107,9 @@ screens = [Screen(top=bar.Bar(
         widget.TextBox(text=' ',  background="#006666", fontsize=18),
         widget.Net(background="#006666", foreground="#ffffff", use_bits='False'),
         widget.TextBox(text='',  foreground="#003333", background="#006666", fontsize=21),
-        widget.Clock(format=' %H:%M  %a %d %m', background="#003333", foreground="#ffffff"),
+        widget.Clock(format='  %a %d %m  %H:%M ', background="#003333", foreground="#ffffff"),
 
-            ],22,background='#001919',margin=0,opacity=1,),),]
+    ],22,background='#001919',margin=0,opacity=1,),),]
 
 # Drag floating layouts.
 mouse = [
