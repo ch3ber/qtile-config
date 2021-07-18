@@ -1,8 +1,11 @@
 # qtile-config
+
+![Desktop] (https://github.comn/ch3ber/qtile-config/qtileConfig.png)
+
 My personal config of qtile
 
 ## Instalation
-- Use `git clone https://github.com/chEber405/qtile-config` into `~/.config/qtile/`
+- Use `git clone https://github.com/ch3ber/qtile-config` into `~/.config/qtile/`
 
 ## Dependencies
 - [feh](https://archlinux.org/packages/extra/x86_64/feh/) (in this case Arch Linux) for set wallpapers

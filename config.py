@@ -150,7 +150,7 @@ focus_on_window_activation = "smart"
 wmname = "LG3D"
 
 #set wallpaper of https://www.github.com/chEber405/wallpapers
-os.system("feh -z --bg-fill ~/Images/wallpapersInUse")
+os.system("feh -z --bg-fill ~/Pictures/wallpapers/**")
 #enable trasparenci
 os.system("compton &")
 
