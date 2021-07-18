@@ -1,6 +1,6 @@
 # qtile-config
 
-![Desktop] (https://github.comn/ch3ber/qtile-config/qtileConfig.png)
+![Desktop] (https://github.com/ch3ber/qtile-config/blob/master/qtileConfig.png)
 
 My personal config of qtile
 
