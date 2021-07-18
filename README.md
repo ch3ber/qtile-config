@@ -1,6 +1,6 @@
 # qtile-config
 
-![Desktop] (qtileConfig.png)
+![Desktop](qtileConfig.png)
 
 My personal config of qtile
 
