@@ -18,7 +18,7 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "k", lazy.layout.up()),
-    Key([mod], "space", lazy.layout.next()),
+    Key([mod, "mod1"], "space", lazy.layout.next()),
 
     # Move windows
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
@@ -153,4 +153,5 @@ wmname = "LG3D"
 os.system("feh -z --bg-fill ~/Pictures/wallpapers/**")
 #enable trasparenci
 os.system("compton &")
-
+#enable two layout
+os.system("setxkbmap -layout us,es -option grp:win_space_toggle")
