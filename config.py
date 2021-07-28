@@ -18,7 +18,7 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "k", lazy.layout.up()),
-    Key([mod, "mod1"], "space", lazy.layout.next()),
+    Key([mod, "control"], "n", lazy.layout.next()),
 
     # Move windows
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
@@ -59,7 +59,13 @@ keys = [
     #exec firefox developer edition
     Key([mod, "shift"], "b", lazy.spawn("firefox-developer-edition")),
     #take a screen capture
-    Key([mod, "shift"], "s", lazy.spawn("scrot")),
+    Key([mod], "s", lazy.spawn("scrot -e 'mv $f ~/ss/'")),
+    #take a screen capture select
+    Key([mod, "shift"], "s", lazy.spawn("scrot -q 100 -s -f -e 'mv $f ~/ss/'")),
+    #take a screen capture focused
+    Key([mod, "control"], "s", lazy.spawn("scrot -u -e 'mv $f ~/ss/'")),
+    #open explorer file
+    Key([mod], "e", lazy.spawn("nautilus"))
 ]
 
 group_names = [(" HOME", {'layout': 'columns'}),
@@ -68,7 +74,7 @@ group_names = [(" HOME", {'layout': 'columns'}),
                ("4", {'layout': 'columns'}),
                ("5", {'layout': 'columns'}),
                ("6", {'layout': 'columns'}),
-               ("7", {'layout': 'columns'}),
+               ("ﭮ", {'layout': 'columns'}),
                ("祥", {'layout': 'matrix'}),
                ("", {'layout': 'columns'})]
 
@@ -81,9 +87,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 layouts = [
     layout.Columns(border_focus_stack='#005d5d'),
     layout.Max(),
-    #layout.Stack(num_stacks=2),
     layout.Zoomy(),
-    layout.Matrix(),
+    layout.Matrix()
 ]
 
 widget_defaults = dict(
@@ -96,20 +101,20 @@ extension_defaults = widget_defaults.copy()
 
 screens = [Screen(top=bar.Bar(
     [
-        widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
-        widget.GroupBox(padding=10, borderwidth=0, active="#005d5d", inactive="#009393", highlight_method='text', this_current_screen_border="#002f2f", background="#00CCCC"),
-        widget.TextBox(text='  ',  foreground="#00CCCC", fontsize=21),
+        widget.TextBox(text='  ',  foreground="#7AA2F7", fontsize=21),
+        widget.GroupBox(padding=10, borderwidth=0, active="#1a1b26", inactive="#444B6A", highlight_method='text', this_current_screen_border="#ffffff", background="#7AA2F7"),
+        widget.TextBox(text='  ',  foreground="#7AA2F7", fontsize=21),
         widget.Prompt(),
-        widget.WindowName(foreground="#00ffff"),
-        widget.TextBox(text='',  foreground="#009999", fontsize=21),
-        widget.CurrentLayout(background="#009999", foreground="#ffffff"),
-        widget.TextBox(text='',  foreground="#006666", background="#009999", fontsize=21),
-        widget.TextBox(text=' ',  background="#006666", fontsize=18),
-        widget.Net(background="#006666", foreground="#ffffff", use_bits='False'),
-        widget.TextBox(text='',  foreground="#003333", background="#006666", fontsize=21),
-        widget.Clock(format='  %a %d %m  %H:%M ', background="#003333", foreground="#ffffff"),
+        widget.WindowName(foreground="#b9f27c"),
+        widget.TextBox(text='',  foreground="#3b3d57", fontsize=21),
+        widget.CurrentLayout(background="#3b3d57", foreground="#ffffff"),
+        widget.TextBox(text='',  foreground="#444B6A", background="#3b3d57", fontsize=21),
+        widget.TextBox(text=' ',  background="#444B6A", fontsize=18),
+        widget.Net(background="#444B6A", foreground="#ffffff", use_bits='False'),
+        widget.TextBox(text='',  foreground="#7AA2F7", background="#444B6A", fontsize=21),
+        widget.Clock(format='  %a %d %m  %H:%M ', background="#7AA2F7", foreground="#24283b"),
 
-    ],22,background='#001919',margin=0,opacity=1,),),]
+    ],22,background='#06080a',margin=0,opacity=1,),),]
 
 # Drag floating layouts.
 mouse = [
