@@ -101,20 +101,20 @@ extension_defaults = widget_defaults.copy()
 
 screens = [Screen(top=bar.Bar(
     [
-        widget.TextBox(text='  ',  foreground="#7AA2F7", fontsize=21),
-        widget.GroupBox(padding=10, borderwidth=0, active="#1a1b26", inactive="#444B6A", highlight_method='text', this_current_screen_border="#ffffff", background="#7AA2F7"),
-        widget.TextBox(text='  ',  foreground="#7AA2F7", fontsize=21),
+        widget.TextBox(text='  ',  foreground="#8fbcbb", fontsize=21),
+        widget.GroupBox(padding=10, borderwidth=0, active="#3b4252", inactive="#4c566a", highlight_method='text', this_current_screen_border="#eceff4", background="#8fbcbb"),
+        widget.TextBox(text='  ',  foreground="#8fbcbb", fontsize=21),
         widget.Prompt(),
-        widget.WindowName(foreground="#b9f27c"),
-        widget.TextBox(text='',  foreground="#3b3d57", fontsize=21),
-        widget.CurrentLayout(background="#3b3d57", foreground="#ffffff"),
-        widget.TextBox(text='',  foreground="#444B6A", background="#3b3d57", fontsize=21),
-        widget.TextBox(text=' ',  background="#444B6A", fontsize=18),
-        widget.Net(background="#444B6A", foreground="#ffffff", use_bits='False'),
-        widget.TextBox(text='',  foreground="#7AA2F7", background="#444B6A", fontsize=21),
-        widget.Clock(format='  %a %d %m  %H:%M ', background="#7AA2F7", foreground="#24283b"),
+        widget.WindowName(foreground="#eceff4"),
+        widget.TextBox(text='',  foreground="#88c0d0", fontsize=21),
+        widget.CurrentLayout(background="#88c0d0", foreground="#eceff4"),
+        widget.TextBox(text='',  foreground="#81a1c1", background="#88c0d0", fontsize=21),
+        widget.TextBox(text=' ',  background="#81a1c1", fontsize=18),
+        widget.Net(background="#81a1c1", foreground="#eceff4", use_bits='False'),
+        widget.TextBox(text='',  foreground="#5e81ac", background="#81a1c1", fontsize=21),
+        widget.Clock(format='  %a %d %m  %H:%M ', background="#5e81ac", foreground="#eceff4"),
 
-    ],22,background='#06080a',margin=0,opacity=1,),),]
+    ],22,background='#2e3440',margin=0,opacity=1,),),]
 
 # Drag floating layouts.
 mouse = [
